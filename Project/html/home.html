@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <script src="../JS/jquery-3.7.1.min.js"></script>
+    <script src="../JS/bootstrap.js"></script>
+</head>
+<style>
+    * {
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        background-color: #f5f7f6;
+        width: 100%;
+        height: 150px;
+        border-bottom: 1px solid rgb(208, 208, 208);
+        position: relative;
+    }
+    
+    .lienhe {
+        position: absolute;
+        top: 50px;
+        right: 1000px;
+    }
+    
+    .imgfb {
+        content: url(../IMG/fb_xam.png);
+    }
+    
+    .imgfb:hover {
+        content: url(../IMG/fb_do.png);
+    }
+    
+    .imginta {
+        content: url(../IMG/inta_xam.png);
+    }
+    
+    .imginta:hover {
+        content: url(../IMG/inta_dep.png);
+    }
+    
+    .imgtiktok {
+        content: url(../IMG/tiktok_xam.png);
+    }
+    
+    .imgtiktok:hover {
+        content: url(../IMG/tiktok_do.png);
+    }
+    
+    .imgytb {
+        content: url(../IMG/you_xam.png);
+    }
+    
+    .imgytb:hover {
+        content: url(../IMG/you_do.png);
+    }
+    /*ten shop chính giữa header*/
+    
+    .tenshop {
+        position: absolute;
+        top: 40px;
+        right: 630px;
+    }
+    /*mục input tìm kiếm sản phẩm*/
+    
+    .timkiem {
+        position: absolute;
+        width: 250px;
+        top: 50px;
+        right: 300px;
+    }
+    
+    .nuttim {
+        position: absolute;
+        top: 50px;
+        right: 300px;
+        width: 40px;
+        border: 1px solid rgb(234, 232, 232);
+    }
+    
+    .dangnhap {
+        position: absolute;
+        top: 40px;
+        right: 220px;
+        border: none;
+        background-color: #f5f7f6;
+    }
+    
+    @media (max-width: 1100px) {
+        header {
+            height: 220px;
+            flex-direction: column;
+            /* Xếp các phần tử theo chiều dọc */
+            padding-top: 15px;
+            padding-bottom: 15px;
+            align-items: center;
+            /* Căn giữa các phần tử theo chiều ngang */
+            justify-content: flex-start;
+            /* Bắt đầu các phần tử từ trên xuống */
+        }
+        .tenshop {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .dangnhap {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+            border: none;
+            background-color: #f5f7f6;
+        }
+        .timkiem {
+            position: absolute;
+            width: 250px;
+            top: 100px;
+            right: 110px;
+        }
+        .nuttim {
+            position: absolute;
+            top: 100px;
+            right: 110px;
+            width: 40px;
+            border: 1px solid rgb(234, 232, 232);
+        }
+        .lienhe {
+            position: absolute;
+            top: 150px;
+            right: 110px;
+        }
+    }
+    /*CSS modal đăng nhập,đăng kí*/
+    
+    .modaldangky {
+        border-radius: 10%;
+        border: 1px solid gray;
+    }
+    
+    .hoac {
+        display: flex;
+        align-items: center;
+        margin: 50px;
+    }
+    
+    .hoac hr {
+        flex-grow: 1;
+        border: 0;
+        border-top: 1px solid black;
+        margin: 0 10px;
+    }
+    
+    .hoac span {
+        font-size: 20px;
+    }
+    
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+    /*thẻ các sản phẩm tại trang chủ*/
+    
+    .sp1 {
+        content: url(../IMG/sp1.png);
+    }
+    
+    .sp1:hover {
+        content: url(../IMG/hv_sp1.png);
+    }
+    
+    .sp2 {
+        content: url(../IMG/sp2.png);
+    }
+    
+    .sp2:hover {
+        content: url(../IMG/hv_sp2.png);
+    }
+    
+    .sp3 {
+        content: url(../IMG/sp3.png);
+    }
+    
+    .sp3:hover {
+        content: url(../IMG/hv_sp3.png);
+    }
+    
+    .sp4 {
+        content: url(../IMG/sp4.png);
+    }
+    
+    .sp4:hover {
+        content: url(../IMG/hv_sp4.png);
+    }
+    
+    .sp5 {
+        content: url(../IMG/sp5.png);
+    }
+    
+    .sp5:hover {
+        content: url(../IMG/hv_sp5.png);
+    }
+    
+    .sp6 {
+        content: url(../IMG/sp6.png);
+    }
+    
+    .sp6:hover {
+        content: url(../IMG/hv_sp6.png);
+    }
+    
+    .sp7 {
+        content: url(../IMG/sp7.png);
+    }
+    
+    .sp7:hover {
+        content: url(../IMG/hv_sp7.png);
+    }
+    
+    .sp8 {
+        content: url(../IMG/sp8.png);
+    }
+    
+    .sp8:hover {
+        content: url(../IMG/hv_sp8.png);
+    }
+    
+    .sp9 {
+        content: url(../IMG/sp9.png);
+    }
+    
+    .sp9:hover {
+        content: url(../IMG/hv_sp9.png);
+    }
+    
+    .sp10 {
+        content: url(../IMG/sp10.png);
+    }
+    
+    .sp10:hover {
+        content: url(../IMG/hv_sp10.png);
+    }
+    
+    footer {
+        background-color: #008391;
+        color: white;
+    }
+    
+    .navbar-nav .nav-item>.nav-link:hover {
+        color: #008391;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <img src="../IMG/header.png" alt="" width="100%">
+        <header>
+            <div class="lienhe">
+                <p style="float: left;" class="mt-2">Theo dõi qua: </p>
+                <a href="https://www.facebook.com/paulaschoice.vn/"><img src="../IMG/fb_xam.png" alt="" class="imgfb ps-2" width="22px" height="20px"></a>
+                <a href="https://www.instagram.com/paulaschoice.vn/"><img src="../IMG/inta_xam.png" class="imginta ps-2" alt="" width="27px" height="25px"></a>
+                <a href="https://www.tiktok.com/@paulaschoice.vn"><img src="../IMG/tiktok_xam.png" class="imgtiktok ps-2" alt="" width="25px" height="22px"></a>
+                <a href="https://www.youtube.com/@PaulasChoiceVietnam84"><img src="../IMG/you_xam.png" class="imgytb ps-2" alt="" width="28px" height="22px"></a>
+            </div>
+
+            <div class="tenshop">
+                <a href="#"><img src="../IMG/tenshop.png" alt="" width="270px" height="65px"></a>
+            </div>
+
+            <div class="timkiem"> <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm"></div>
+            <button class="nuttim"><img src="../IMG/searchdd.png" alt="" width="30px" height="35px"></button>
+            <button class="dangnhap" data-bs-toggle="modal" data-bs-target="#myModal"><img src="../IMG/dangnhap.png" alt="" width="60px" height="60px"></button>
+        </header>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mb-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><button type="button" class="btn p-1" style="background-color: #008391;"><a class="nav-link" href="#" style="color: white;">Khuyến mãi</a></button></li>
+                    <li class="nav-item"><a class="nav-link pt-3 ps-3" href="#">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link pt-3" href="#">Sản Phẩm Mới</a></li>
+                    <li class="nav-item"><a class="nav-link pt-3" href="#">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link pt-3" href="#">Thành Phần</a></li>
+                    <li class="nav-item"><a class="nav-link pt-3" href="#">Kiến Thức Chăm Sóc Da</a></li>
+                    <li class="nav-item"><a class="nav-link pt-3" href="#">Tin Tức</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../IMG/vongxoay1.png" class="d-block" style="width:100%">
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/vongxoay2.png" class="d-block" style="width:100%">
+                </div>
+                <div class="carousel-item">
+                    <img src="../IMG/vongxoay3.png" class="d-block" style="width:100%">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="col-6 mt-4 ps-4"><img src="../IMG/sp_giamnepnhan.png" alt="" width="630px" height="440px"></div>
+            <div class="col-3 mt-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp1.png" width="100%" alt="" class="sp1"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Kem dưỡng ẩm căng mọng và giảm nếp nhăn Pro-Collagen Peptide</strong></a><br><br>
+                        <strong>1.339.000đ</strong><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 mt-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp2.png" width="100%" alt="" class="sp2"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Son dưỡng môi căng mọng và mềm Pro-Collagen Peptide Gloss Balm</strong></a><br><br>
+                        <strong>1.339.000đ</strong><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3 mt-4 ps-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp3.png" width="100%" alt="" class="sp3"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong>Kem dưỡng ẩm nguồn gốc thiên nhiên Antioxidant Enriched Natural Moisturizer</strong></a><br>
+                        <strong>949.000đ</strong><br>
+                        <img src="../IMG/5sao.png" alt="" class="mt-2 mb-2"><br>
+                        <button type="button" class="btn btn-secondary mt-1"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 mt-4 ps-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp4.png" width="100%" alt="" class="sp4"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong>Kem dưỡng ẩm ngừa thâm nám và nếp nhăn Resist Intensive Repair Cream</strong></a><br>
+                        <del>1.055.000đ</del><strong class="ps-2">949.000đ</strong> <button type="button" class="btn btn-danger p-1">-10%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary mt-1"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-4"><img src="../IMG/sp_duongam.png" alt="" width="630px" height="470px"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 mt-4 ps-4"><img src="../IMG/sp_chongnang.png" alt="" width="630px" height="475px"></div>
+            <div class="col-3 mt-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp5.png" width="100%" alt="" class="sp5"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Kem dưỡng ẩm căng mọng và giảm nếp nhăn Pro-Collagen Peptide</strong></a><br><br>
+                        <del>950.000đ</del><strong class="ps-2">810.000đ</strong> <button type="button" class="btn btn-danger p-1">-15%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 mt-4">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp6.png" width="100%" alt="" class="sp6"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Son dưỡng môi căng mọng và mềm Pro-Collagen Peptide Gloss Balm</strong></a><br><br>
+                        <del>1.050.000đ</del><strong class="ps-2">895.000đ</strong> <button type="button" class="btn btn-danger p-1">-15%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-center m-5">TOP SẢN PHẨM BÁN CHẠY</h1>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp7.png" width="100%" alt="" class="sp7"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Sữa rửa mặt cho da mụn và thu nhỏ lỗ chân lông Clear Pore Normalizing Cleanser</strong></a><br><br>
+                        <del>579.000đ</del><strong class="ps-2">520.000đ</strong> <button type="button" class="btn btn-danger p-1">-10%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp8.png" width="100%" alt="" class="sp8"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong> Sữa rửa mặt diu nhẹ Defense Hydrating Gel-To-Cream Cleanser</strong></a><br><br><br>
+                        <strong class="ps-2">699.000đ</strong><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2 mt-2"><br>
+                        <button type="button" class="btn btn-secondary mb-1"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp9.png" width="100%" alt="" class="sp9"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong>Sữa rửa mặt cân bằng độ ẩm và giảm dầu Skin Balancing Oil-Reducing Cleanser</strong></a><br><br>
+                        <del>699.000đ</del><strong class="ps-2">650.000đ</strong> <button type="button" class="btn btn-danger p-1">-7%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header"><img src="../IMG/sp10.png" width="100%" alt="" class="sp10"></div>
+                    <div class="card-footer text-center">
+                        <a href="#" style="text-decoration: none; color: black;"><strong>Sữa rửa mặt cân bằng da Resist Perfectly Balanced Foaming Cleanser</strong></a><br><br>
+                        <del>760.000đ</del><strong class="ps-2">725.000đ</strong> <button type="button" class="btn btn-danger p-1">-5%</button><br>
+                        <img src="../IMG/5sao.png" alt="" class="mb-2"><br>
+                        <button type="button" class="btn btn-secondary"><strong>Thêm vào giỏ</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <footer>
+            <div class="row mt-5 p-5">
+                <div class="col-4">
+                    <h5><strong>HỖ TRỢ KHÁCH HÀNG</strong></h5>
+                    <p>1900 6409 - 0973 78 2001</p>
+                    <p>cskh@paulaschoice.vn</p>
+                </div>
+                <div class="col-8 ps-5">
+                    <h5><strong>PAULA'S CHOICE</strong></h5>
+                    <strong>CÔNG TY TNHH PAULA'S CHOICE VIỆT NAM</strong>
+                    <p> Số ĐKKD 0110392381 do Sở Kế hoạch và đầu tư TP Hà Nội cấp lần đầu ngày 20/06/2023, thay đổi lần thứ 3 ngày 09/09/2024 <br> Địa chỉ: Tầng 3, Toà nhà The Sun, số 3 đường Mễ Trì, Phường Mễ Trì, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt
+                        Nam
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<!--Modal-->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-5 modaldangnhap">
+                        <h4 class="modal-title mt-4 pb-3" style="border-bottom: 1px solid black;">ĐĂNG NHẬP</h4>
+                        <form action="" class="m-2">
+                            <label for="" class="mb-3 mt-3"><strong>Mail/Username</strong><span style="color: red;">*</span></label>
+                            <input type="text" class="form-control">
+                            <label for="" class="mb-3 mt-3"><strong>Mật khẩu</strong><span style="color: red;">*</span></label>
+                            <input type="text" class="form-control">
+                            <a href="#" style="color: rgb(9, 164, 231);">Quên mật khẩu</a><br>
+                            <input class="me-2 mt-2 mb-3 mt-3" type="checkbox" name="" id=""><label for="">Ghi nhớ mật khẩu</label><br>
+                            <button type="button" style="background-color: rgb(35, 34, 34); color: white;" class="ps-5 pe-5 pt-3 pb-3"><strong>ĐĂNG NHẬP</strong></button>
+                            <div class="hoac">
+                                <hr>
+                                <span>Hoặc</span>
+                                <hr>
+                            </div>
+                            <button type="button" class="btn btn-primary" style="margin-left: 85px;"><img src="../IMG/dn_fb.png" alt="" style="border-radius: 50%;" class="pe-3">Continue with Facebook</button><br>
+                            <button type="button" class="btn btn-danger mt-3 pe-4" style="margin-left: 85px;"><img src="../IMG/dn_gg.png" alt="" style="border-radius: 50%;" class="pe-3"> Continue with Google</button>
+                        </form>
+                    </div>
+                    <div class="col-6 modaldangky ms-5">
+                        <h4 class="modal-title ms-3 me-3 mt-4 pb-3" style="border-bottom: 1px solid black;">TẠO TÀI KHOẢN</h4>
+                        <form action="" class="m-2">
+                            <label for="" class="mb-3 mt-3"><strong>Mail</strong><span style="color: red;">*</span></label>
+                            <input type="text" class="form-control">
+                            <label for="" class="mb-3 mt-3"><strong>Số điện thoại</strong><span style="color: red;">*</span></label>
+                            <input type="text" class="form-control">
+                            <label for="" class="mb-3 mt-3"><strong>Ngày tháng năm sinh</strong><span style="color: red;">*</span></label><br>
+                            <select id="ngay" name="ngay" class="ps-3 pe-3 pt-1 pb-1" style="height: 32px; border-radius: 5px;">
+                                <option value="">Ngày</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                              </select>
+                            <select id="thang" name="thang" class="ps-3 pe-3 pt-1 pb-1 ms-3" style="height: 32px; border-radius: 5px;">
+                                <option value="">Tháng</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                              </select>
+                            <select id="nam" name="nam" class="ps-3 pe-3 pt-1 pb-1 ms-3" style="height: 32px; border-radius: 5px;">
+                                <option value="">Năm</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                                <option value="2000">2000</option>
+                                <option value="2009">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+                                <option value="1994">1994</option>
+                                <option value="1993">1993</option>
+                                <option value="1992">1992</option>
+                                <option value="1991">1991</option>
+                                <option value="1990">1990</option>
+                                <option value="1989">1989</option>
+                                <option value="1988">1988</option>
+                                <option value="1987">1987</option>
+                                <option value="1986">1986</option>
+                                <option value="1985">1985</option>
+                                <option value="1984">1984</option>
+                                <option value="1983">1983</option>
+                                <option value="1982">1982</option>
+                                <option value="1981">1981</option>
+                                <option value="1980">1980</option>
+                                <option value="1979">1979</option>
+                                <option value="1978">1978</option>
+                                <option value="1977">1977</option>
+                                <option value="1976">1976</option>
+                                <option value="1975">1975</option>
+                                <option value="1974">1974</option>
+                                <option value="1973">1973</option>
+                                <option value="1972">1972</option>
+                                <option value="1971">1971</option>
+                                <option value="1970">1970</option>
+                                <option value="1969">1969</option>
+                                <option value="1968">1968</option>
+                                <option value="1967">1967</option>
+                                <option value="1966">1966</option>
+                                <option value="1965">1965</option>
+                                <option value="1964">1964</option>
+                                <option value="1963">1963</option>
+                                <option value="1962">1962</option>
+                                <option value="1961">1961</option>
+                                <option value="1960">1960</option>
+                                <option value="1959">1959</option>
+                                <option value="1958">1958</option>
+                                <option value="1957">1957</option>
+                                <option value="1956">1956</option>
+                                <option value="1955">1955</option>
+                                <option value="1954">1954</option>
+                                <option value="1953">1953</option>
+                                <option value="1952">1952</option>
+                                <option value="1951">1951</option>
+                                <option value="1950">1950</option>
+                                <option value="1949">1949</option>
+                                <option value="1948">1948</option>
+                                <option value="1947">1947</option>
+                                <option value="1946">1946</option>
+                                <option value="1945">1945</option>
+                              </select><br>
+                            <input class="me-2 mt-2 mb-3 mt-3" type="checkbox" name="" id=""><label for=""> Tôi đã đọc và hoàn toàn đồng ý với <a href="https://paulaschoice.vn/chinh-sach-bao-mat">Chính sách quyền riêng tư</a></label><br>
+                        </form>
+                        <p style="font-size: 13px; color: gray;">* Tên đăng nhập và mật khẩu sẽ được gửi qua email cá nhân của bạn</p>
+                        <form action="">
+                            <button type="button" style="background-color: rgb(35, 34, 34); color: white;" class="ps-5 pe-5 pt-3 pb-3 mt-3 ms-4"><strong>TẠO TÀI KHOẢN</strong></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</html>
